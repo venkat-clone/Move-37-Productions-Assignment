@@ -1,0 +1,227 @@
+{
+	"info": {
+		"_postman_id": "e5699321-21db-40c4-a03e-ece5090728ec",
+		"name": "movie 37 Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "42545370"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "user list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/api/user/list",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNo",
+									"value": "2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{API}}/api/user/id/1"
+					},
+					"response": []
+				},
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"venkey\",\r\n    \"email\":\"venkey2@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API}}/api/auth/register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {\r",
+									"    const jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"TOKEN\", jsonData.token);\r",
+									"    pm.test(\"Token set successfully\", () => pm.expect(true).to.be.true);\r",
+									"\r",
+									"} else {\r",
+									"    pm.test(`Response status is not 200 OK (status: ${pm.response.code})`, () => {\r",
+									"        pm.expect(pm.response.code).to.eql(200);\r",
+									"    });\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"venkey@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API}}/api/auth/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "poll",
+			"item": [
+				{
+					"name": "create poll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{TOKEN}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"question\":\"Red Light Blue Light\",\r\n    \"options\":[\r\n        \"Red\",\r\n        \"Blue\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API}}/api/poll/create"
+					},
+					"response": []
+				},
+				{
+					"name": "update Poll",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isPublished\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API}}/api/poll/update/1"
+					},
+					"response": []
+				},
+				{
+					"name": "get Poll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isPublished\":false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{API}}/api/poll/list"
+					},
+					"response": []
+				},
+				{
+					"name": "get Poll By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{API}}/api/poll/id/1"
+					},
+					"response": []
+				},
+				{
+					"name": "cast vote",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": "{{API}}/api/poll/castVote/1/1"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{TOKEN}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": ""
+		}
+	]
+}

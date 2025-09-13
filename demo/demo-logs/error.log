@@ -1,0 +1,90 @@
+2025-09-13 23:35:52 [ERROR]: Prisma Error Not implemented
+{
+    "name": "Error"
+}
+2025-09-13 23:35:58 [ERROR]: Unhandled Error Not implemented
+Trace: Error: Not implemented
+    at Module.listPolls (file:///E:/venkey/assignments/move37/services/poll.service.js:34:7)
+    at listPolls (file:///E:/venkey/assignments/move37/controllers/poll.controller.js:32:37)
+    at Layer.handleRequest (E:\venkey\assignments\move37\node_modules\router\lib\layer.js:152:17)
+    at next (E:\venkey\assignments\move37\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (E:\venkey\assignments\move37\node_modules\router\lib\route.js:117:3)
+    at handle (E:\venkey\assignments\move37\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (E:\venkey\assignments\move37\node_modules\router\lib\layer.js:152:17)
+    at E:\venkey\assignments\move37\node_modules\router\index.js:295:15
+    at processParams (E:\venkey\assignments\move37\node_modules\router\index.js:582:12)
+    at next (E:\venkey\assignments\move37\node_modules\router\index.js:291:5)
+{
+    "path": "/api/poll/list",
+    "method": "GET",
+    "query": {}
+}
+2025-09-13 23:52:45 [ERROR]: Prisma Error 
+Invalid `prisma.user.findUnique()` invocation:
+
+{
+  where: {
+    id: "1"
+        ~~~
+  },
+  omit: {
+    passwordHash: true
+  }
+}
+
+Argument `id`: Invalid value provided. Expected Int, provided String.
+{
+    "name": "PrismaClientValidationError"
+}
+2025-09-13 23:53:36 [ERROR]: Prisma Error Email already registered
+{
+    "name": "Error"
+}
+2025-09-13 23:53:36 [ERROR]: Unhandled Error Email already registered
+Trace: Error: Email already registered
+    at Module.createUser (file:///E:/venkey/assignments/move37/services/auth.service.js:21:15)
+    at async register (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:10:18)
+{
+    "path": "/api/auth/register",
+    "method": "POST",
+    "query": {}
+}
+2025-09-14 00:15:11 [ERROR]: Prisma Error Invalid email or password
+{
+    "name": "Error"
+}
+2025-09-14 00:15:11 [ERROR]: Unhandled Error Invalid email or password
+Trace: Error: Invalid email or password
+    at Module.loginUser (file:///E:/venkey/assignments/move37/services/auth.service.js:46:15)
+    at async login (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:23:18)
+{
+    "path": "/api/auth/login",
+    "method": "POST",
+    "query": {}
+}
+2025-09-14 00:17:24 [ERROR]: Prisma Error User has already voted for this option
+{
+    "name": "Error"
+}
+2025-09-14 00:17:24 [ERROR]: Unhandled Error User has already voted for this option
+Trace: Error: User has already voted for this option
+    at Module.castVote (file:///E:/venkey/assignments/move37/services/voting.service.js:32:15)
+    at async castVote (file:///E:/venkey/assignments/move37/controllers/poll.controller.js:88:5)
+{
+    "path": "/api/poll/castVote/1/1",
+    "method": "PUT",
+    "query": {}
+}
+2025-09-14 00:17:46 [ERROR]: Prisma Error Email already registered
+{
+    "name": "Error"
+}
+2025-09-14 00:17:46 [ERROR]: Unhandled Error Email already registered
+Trace: Error: Email already registered
+    at Module.createUser (file:///E:/venkey/assignments/move37/services/auth.service.js:21:15)
+    at async register (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:10:18)
+{
+    "path": "/api/auth/register",
+    "method": "POST",
+    "query": {}
+}

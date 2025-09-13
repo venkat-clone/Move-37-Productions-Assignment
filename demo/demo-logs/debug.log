@@ -1,0 +1,268 @@
+2025-09-14 00:14:24 [INFO]: Logging level: debug
+2025-09-14 00:14:24 [INFO]: project env: development
+2025-09-14 00:14:24 [INFO]: project Production: false
+2025-09-14 00:14:24 [DEBUG]: Server started
+2025-09-14 00:14:37 [HTTP]: ::1 "GET /api/user/list HTTP/1.1"
+2025-09-14 00:14:37 [DEBUG]: getAllUsers called
+{
+    "paginationOptions": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "query": "",
+        "sortOrder": "asc"
+    }
+}
+2025-09-14 00:14:38 [INFO]: Retrieved 0 users (page 1/0)
+2025-09-14 00:14:53 [HTTP]: ::1 "POST /api/auth/register HTTP/1.1"
+2025-09-14 00:14:53 [DEBUG]: createUser called
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:14:53 [DEBUG]: User data validated
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:14:53 [DEBUG]: Password hashed successfully
+2025-09-14 00:14:53 [INFO]: User created with ID: 1, email: venkey1@gmail.com
+2025-09-14 00:15:01 [HTTP]: ::1 "GET /api/user/list HTTP/1.1"
+2025-09-14 00:15:01 [DEBUG]: getAllUsers called
+{
+    "paginationOptions": {
+        "pageNo": 1,
+        "pageSize": 10,
+        "query": "",
+        "sortOrder": "asc"
+    }
+}
+2025-09-14 00:15:01 [INFO]: Retrieved 1 users (page 1/1)
+2025-09-14 00:15:11 [HTTP]: ::1 "POST /api/auth/login HTTP/1.1"
+2025-09-14 00:15:11 [DEBUG]: loginUser called
+{
+    "email": "venkey@gmail.com"
+}
+2025-09-14 00:15:11 [WARN]: Login failed: Email not found - venkey@gmail.com
+2025-09-14 00:15:11 [ERROR]: Prisma Error Invalid email or password
+{
+    "name": "Error"
+}
+2025-09-14 00:15:11 [DEBUG]: Error Invalid email or password
+Trace: Error: Invalid email or password
+    at Module.loginUser (file:///E:/venkey/assignments/move37/services/auth.service.js:46:15)
+    at async login (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:23:18)
+{
+    "path": "/api/auth/login",
+    "method": "POST",
+    "body": {
+        "email": "venkey@gmail.com",
+        "password": "password"
+    },
+    "query": {}
+}
+2025-09-14 00:15:11 [ERROR]: Unhandled Error Invalid email or password
+Trace: Error: Invalid email or password
+    at Module.loginUser (file:///E:/venkey/assignments/move37/services/auth.service.js:46:15)
+    at async login (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:23:18)
+{
+    "path": "/api/auth/login",
+    "method": "POST",
+    "query": {}
+}
+2025-09-14 00:15:19 [HTTP]: ::1 "POST /api/auth/login HTTP/1.1"
+2025-09-14 00:15:19 [DEBUG]: loginUser called
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:15:19 [INFO]: User logged in successfully: venkey1@gmail.com
+2025-09-14 00:15:41 [HTTP]: ::1 "GET /api/user/id/1 HTTP/1.1"
+2025-09-14 00:15:41 [DEBUG]: getUserById called
+{
+    "id": 1
+}
+2025-09-14 00:15:41 [INFO]: User retrieved: ID 1
+2025-09-14 00:15:57 [HTTP]: ::1 "POST /api/poll/create HTTP/1.1"
+2025-09-14 00:15:57 [DEBUG]: createPoll called
+{
+    "pollData": {
+        "question": "Red Light Blue Light",
+        "options": [
+            {
+                "text": "Red"
+            },
+            {
+                "text": "Blue"
+            }
+        ],
+        "creatorId": 1
+    }
+}
+2025-09-14 00:15:57 [INFO]: Poll created with ID: 1 by creator 1
+2025-09-14 00:16:17 [HTTP]: ::1 "PUT /api/poll/update/1 HTTP/1.1"
+2025-09-14 00:16:17 [DEBUG]: updatePoll called
+{
+    "pollId": 1,
+    "updateData": {
+        "isPublished": false,
+        "creatorId": 1
+    }
+}
+2025-09-14 00:16:17 [DEBUG]: Validated update data
+{
+    "validData": {
+        "isPublished": false
+    }
+}
+2025-09-14 00:16:17 [INFO]: Poll updated with ID: 1
+2025-09-14 00:16:36 [INFO]: Client connected: a3diZmWkDvMpAO8rAAAB
+2025-09-14 00:16:37 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:16:37 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:16:37 [DEBUG]: No cached data for poll 1, broadcasting vote counts.
+2025-09-14 00:16:37 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:16:37 [INFO]: Client a3diZmWkDvMpAO8rAAAB subscribed to poll 1
+2025-09-14 00:16:37 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:16:38 [DEBUG]: Broadcasted vote counts for poll 1
+2025-09-14 00:17:08 [HTTP]: ::1 "PUT /api/poll/castVote/1/1 HTTP/1.1"
+2025-09-14 00:17:08 [DEBUG]: castVote called
+{
+    "pollId": 1,
+    "userId": 1,
+    "optionId": 1
+}
+2025-09-14 00:17:08 [DEBUG]: Poll found
+{
+    "pollId": 1,
+    "isPublished": false
+}
+2025-09-14 00:17:08 [INFO]: Vote cast: userId 1 voted for optionId 1 in pollId 1
+2025-09-14 00:17:08 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:17:08 [DEBUG]: Broadcast triggered for pollId: 1
+2025-09-14 00:17:08 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:17:08 [DEBUG]: Broadcasted vote counts for poll 1
+2025-09-14 00:17:24 [HTTP]: ::1 "PUT /api/poll/castVote/1/1 HTTP/1.1"
+2025-09-14 00:17:24 [DEBUG]: castVote called
+{
+    "pollId": 1,
+    "userId": 1,
+    "optionId": 1
+}
+2025-09-14 00:17:24 [DEBUG]: Poll found
+{
+    "pollId": 1,
+    "isPublished": false
+}
+2025-09-14 00:17:24 [WARN]: Vote rejected: User 1 has already voted for optionId: 1
+2025-09-14 00:17:24 [ERROR]: Prisma Error User has already voted for this option
+{
+    "name": "Error"
+}
+2025-09-14 00:17:24 [DEBUG]: Error User has already voted for this option
+Trace: Error: User has already voted for this option
+    at Module.castVote (file:///E:/venkey/assignments/move37/services/voting.service.js:32:15)
+    at async castVote (file:///E:/venkey/assignments/move37/controllers/poll.controller.js:88:5)
+{
+    "path": "/api/poll/castVote/1/1",
+    "method": "PUT",
+    "query": {}
+}
+2025-09-14 00:17:24 [ERROR]: Unhandled Error User has already voted for this option
+Trace: Error: User has already voted for this option
+    at Module.castVote (file:///E:/venkey/assignments/move37/services/voting.service.js:32:15)
+    at async castVote (file:///E:/venkey/assignments/move37/controllers/poll.controller.js:88:5)
+{
+    "path": "/api/poll/castVote/1/1",
+    "method": "PUT",
+    "query": {}
+}
+2025-09-14 00:17:46 [HTTP]: ::1 "POST /api/auth/register HTTP/1.1"
+2025-09-14 00:17:46 [DEBUG]: createUser called
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:17:46 [DEBUG]: User data validated
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:17:46 [WARN]: User creation failed: Email already registered - venkey1@gmail.com
+2025-09-14 00:17:46 [ERROR]: Prisma Error Email already registered
+{
+    "name": "Error"
+}
+2025-09-14 00:17:46 [DEBUG]: Error Email already registered
+Trace: Error: Email already registered
+    at Module.createUser (file:///E:/venkey/assignments/move37/services/auth.service.js:21:15)
+    at async register (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:10:18)
+{
+    "path": "/api/auth/register",
+    "method": "POST",
+    "body": {
+        "name": "venkey",
+        "email": "venkey1@gmail.com",
+        "password": "password"
+    },
+    "query": {}
+}
+2025-09-14 00:17:46 [ERROR]: Unhandled Error Email already registered
+Trace: Error: Email already registered
+    at Module.createUser (file:///E:/venkey/assignments/move37/services/auth.service.js:21:15)
+    at async register (file:///E:/venkey/assignments/move37/controllers/auth.controller.js:10:18)
+{
+    "path": "/api/auth/register",
+    "method": "POST",
+    "query": {}
+}
+2025-09-14 00:18:33 [HTTP]: ::1 "POST /api/auth/register HTTP/1.1"
+2025-09-14 00:18:33 [DEBUG]: createUser called
+{
+    "email": "venkey2@gmail.com"
+}
+2025-09-14 00:18:33 [DEBUG]: User data validated
+{
+    "email": "venkey2@gmail.com"
+}
+2025-09-14 00:18:34 [DEBUG]: Password hashed successfully
+2025-09-14 00:18:34 [INFO]: User created with ID: 2, email: venkey2@gmail.com
+2025-09-14 00:19:00 [HTTP]: ::1 "POST /api/auth/login HTTP/1.1"
+2025-09-14 00:19:00 [DEBUG]: loginUser called
+{
+    "email": "venkey1@gmail.com"
+}
+2025-09-14 00:19:00 [INFO]: User logged in successfully: venkey1@gmail.com
+2025-09-14 00:19:09 [HTTP]: ::1 "POST /api/auth/login HTTP/1.1"
+2025-09-14 00:19:09 [DEBUG]: loginUser called
+{
+    "email": "venkey2@gmail.com"
+}
+2025-09-14 00:19:10 [INFO]: User logged in successfully: venkey2@gmail.com
+2025-09-14 00:19:32 [HTTP]: ::1 "PUT /api/poll/castVote/1/1 HTTP/1.1"
+2025-09-14 00:19:32 [DEBUG]: castVote called
+{
+    "pollId": 1,
+    "userId": 2,
+    "optionId": 1
+}
+2025-09-14 00:19:32 [DEBUG]: Poll found
+{
+    "pollId": 1,
+    "isPublished": false
+}
+2025-09-14 00:19:32 [INFO]: Vote cast: userId 2 voted for optionId 1 in pollId 1
+2025-09-14 00:19:32 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:19:32 [DEBUG]: Broadcast triggered for pollId: 1
+2025-09-14 00:19:32 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:19:32 [DEBUG]: Broadcasted vote counts for poll 1
+2025-09-14 00:20:08 [INFO]: Client connected: oOBkEZUgiMw6Sj6-AAAD
+2025-09-14 00:20:09 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:20:09 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:20:09 [DEBUG]: Sending cached vote data for poll 1 to client oOBkEZUgiMw6Sj6-AAAD
+2025-09-14 00:20:09 [INFO]: Client oOBkEZUgiMw6Sj6-AAAD subscribed to poll 1
+2025-09-14 00:28:15 [INFO]: Logging level: debug
+2025-09-14 00:28:15 [INFO]: project env: development
+2025-09-14 00:28:15 [INFO]: project Production: false
+2025-09-14 00:28:15 [DEBUG]: Server started
+2025-09-14 00:28:26 [INFO]: Client connected: uKaTJI7M7RCoenvFAAAB
+2025-09-14 00:28:27 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:28:27 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:28:27 [DEBUG]: No cached data for poll 1, broadcasting vote counts.
+2025-09-14 00:28:27 [DEBUG]: getPollById called with pollId: 1
+2025-09-14 00:28:27 [INFO]: Client uKaTJI7M7RCoenvFAAAB subscribed to poll 1
+2025-09-14 00:28:27 [DEBUG]: Poll retrieved with ID: 1
+2025-09-14 00:28:27 [DEBUG]: Broadcasted vote counts for poll 1
