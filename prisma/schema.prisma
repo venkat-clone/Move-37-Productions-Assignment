@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int    @id @default(autoincrement())
+  name         String
+  email        String @unique
+  passwordHash String
+
+  polls Poll[]
+  votes Vote[]
+
+  @@index([name, email])
+  @@index([name])
+}
+
+model Poll {
+  id          Int      @id @default(autoincrement())
+  question    String
+  isPublished Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  creatorId Int
+  creator   User @relation(fields: [creatorId], references: [id])
+
+  options PollOption[]
+
+  @@index([question, isPublished])
+}
+
+model PollOption {
+  id   Int    @id @default(autoincrement())
+  text String
+
+  pollId Int
+  poll   Poll @relation(fields: [pollId], references: [id])
+
+  votes Vote[]
+}
+
+/// TODO: Conform with business logic
+/// Each User can vote multiple Options for a single Poll
+model Vote {
+  id Int @id @default(autoincrement())
+
+  userId   Int
+  optionId Int
+
+  user   User       @relation(fields: [userId], references: [id])
+  option PollOption @relation(fields: [optionId], references: [id])
+
+  // User cannot
+  @@unique([userId, optionId])
+}
