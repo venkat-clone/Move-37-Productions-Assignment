@@ -58,19 +58,19 @@ const logger = createLogger({
                 })
             ),
         }),
-        new transports.File({
-            filename: path.join(__dirname, "..", "logs", "app.log"),
-            level: "info",
-        }),
-        ...((loggingLevel === "debug") ? [new transports.File({
-            filename: path.join(__dirname, "..", "logs", "debug.log"),
-            level: "debug",
+        // new transports.File({
+        //     filename: path.join(__dirname, "..", "logs", "app.log"),
+        //     level: "info",
+        // }),
+        // ...((loggingLevel === "debug") ? [new transports.File({
+        //     filename: path.join(__dirname, "..", "logs", "debug.log"),
+        //     level: "debug",
 
-        }),] : []),
-        new transports.File({
-            filename: path.join(__dirname, "..", "logs", "error.log"),
-            level: "error",
-        }),
+        // }),] : []),
+        // new transports.File({
+        //     filename: path.join(__dirname, "..", "logs", "error.log"),
+        //     level: "error",
+        // }),
     ],
     exitOnError: false,
 });
